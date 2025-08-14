@@ -1,1 +1,0 @@
-# avanzada_g1_2025s2

@@ -8,5 +8,79 @@
     <h1>Hola desde inicio!!!!!</h1>
     <br>
     <a href="index.html">Volver...</a>
+    <br>
+    <form action="#" method="get">
+        <label for="nombreInput">Nombre:</label>
+        <input type="text" name="nombre" id="nombreInput" maxlength="10"
+        placeholder="Ejemplo: Pedro" disabled/>
+        <br>
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" id="apellido" required>
+        <br>
+        <label>Edad:</label>
+        <input type="number" name="edad" min="1" max="120" value="18">
+        <br>
+        <label>Foto</label>
+        <input type="file" name="edad">
+        <br>
+        <fieldset>
+            <legend>Información de contacto</legend>
+            <label>Email</label>
+            <input type="email" name="correo" placeholder="example@com.co" required>
+            <br>
+            <label>Teléfono</label>
+            <input type="tel" name="telefono" placeholder="+34 3215655555">
+        </fieldset>
+        <br>
+        <label>Fecha:</label>
+        <input type="date" name="fecha"><br>
+        <input type="datetime" name="fechaHora"><br>
+        <input type="datetime-local" name="fechaHoraDos"><br>
+        <input type="time" name="hora"><br>
+        <input type="week" name="semana">
+        <br>
+        <label>Color favorito</label>
+        <input type="color" name="colorFav">
+        <br>
+        <label>Mayor edad:</label>
+        <label>
+            <input type="radio" name="mayorEdad" value="si" checked> Si
+        </label>
+        <label>
+            <input type="radio" name="mayorEdad" value="no"> No
+        </label>
+        <label>
+            <input type="radio" name="mayorEdad" value="ninguna" disabled> Ninguna
+        </label>
+        <br>
+        <label>Nacionalidad</label>
+        <label>
+            <input type="checkbox" name="colombia" checked> Colombia
+        </label>
+        <label>
+            <input type="checkbox" name="EEUU"> EEUU
+        </label>
+        <label>
+            <input type="checkbox" name="Otro" disabled> otro
+        </label>
+        <br>
+        <label>Ciudad</label>
+        <select name="ciudad">
+            <option value="1">Tunja</option>
+            <option value="2">Duitama</option>
+            <option value="3" selected>Sogamoso</option>
+        </select>
+        <br>
+        <label>JUstifique su respuesta:</label>
+        <textarea name="justifique" cols="30" rows="12" readonly>Prueba...</textarea>
+        <input type="hidden" name="codigo" value="30">
+        <br>
+        <input type="submit" value="enviar">
+        <br>
+        <button type="submit">
+            <img src="imagenes/logo_html5.jpg" width="28"> enviar
+        </button>
+        <button type="reset">Limpiar</button>
+    </form>
 </body>
 </html>

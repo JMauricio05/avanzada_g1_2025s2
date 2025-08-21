@@ -1,0 +1,30 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#texto {
+    color: green;
+}
+
+p {
+    text-transform: uppercase;
+}
+
+nav .menu a {
+    border: 1px solid blue;
+}
+
+.lista li.item span {
+    color: blueviolet;
+}
+
+.grande, nav a {
+    font-size: 40px;
+}
+
+/*
+nav a{
+    font-size: 40px;
+}
+*/

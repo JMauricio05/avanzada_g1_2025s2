@@ -3,103 +3,43 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Introducción a html</title>
+    <title>CSS</title>
+    <style>
+        p {
+            text-align: center;
+            color: red;
+        }
+
+        .mayorTamanio {
+            font-size: 50px;
+        }
+    </style>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
-    <!--esto es un comentario....-->
-    <h1>Título</h1>
-    <h2>Sub título</h2>
-    <h3>Otro título</h3>
-    <h4>Prueba...</h4>
-    <h5>Prueba...</h5>
-    <h6>Prueba....</h6>
-    <p>Esto <b>es</b> <i>un</i> parráfo.... <br>1</p>
-    <p>Esto <strong>es</strong> un parráfo.... <br />2</p>
-    <p>
-        <sub>Ejemplo</sub> Prueba <sup>Ejemplo 2</sup>
-    </p>
-    <a href="https://www.uniboyaca.edu.co">Ir a uniboyaca</a>
+    <h1 style="color: blue;text-decoration: underline;">Hola mundo!!!!</h1>
+    <p style="text-align: center;color: red;">Contenido de texto 1....</p>
+    <p style="text-align: center;color: red;">Contenido de texto 2....</p>
+    <p id="texto">Contenido de texto 3....</p>
+    <p class="mayorTamanio">Contenido de texto 4....</p>
     <br>
-    <a href="https://www.uniboyaca.edu.co" target="_blank">Ir a uniboyaca</a>
-    <br>
-    <a href="inicio.html">Ir a inicio</a>
-    <br>
-    <img 
-    src="https://www.websdirect.es/wp-content/uploads/2016/01/Html-5-todo-ventajas.png" 
-    alt="Logo html5"
-    width="150">
-    <br>
-    <img src="imagenes/logo_html5.jpg" 
-    alt="Logo html5"
-    width="150">
-    <br>
-    <ol>
-        <li>Opción 1</li>
-        <li>Opción 2</li>
-        <li>Opción 3</li>
-        <li>Opción 4</li>
-    </ol>
-    <ul>
-        <li>Opción 1</li>
-        <li>Opción 2</li>
-        <li>Opción 3</li>
-        <li>Opción 4</li>
+    <a href="#">Inicio</a>
+    <nav>
+        <div class="menu">
+            <a href="#">Inicio 1</a>
+            <a href="#">Inicio 2</a>
+            <a href="#">Inicio 3</a>
+        </div>
+        <a href="#">Inicio 4</a>
+    </nav>
+    <ul class="lista">
+        <li><span>Opcion 1</span></li>
+        <li class="item grande">
+            <span>Opcion 2</span>
+        </li>
+        <li><span>Opcion 3</span></li>
     </ul>
-    <dl>
-        <dt>Opción 1</dt>
-        <dd>Descripción de la opción 1</dd>
-        <dt>Opción 2</dt>
-        <dd>Descripción de la opción 2</dd>
-    </dl>
-    <br>
-    <table border="1">
-        <tr>
-            <td>Celda 11</td>
-            <td>Celda 12</td>
-            <td>Celda 13</td>
-        </tr>
-        <tr>
-            <td>Celda 21</td>
-            <td>Celda 22</td>
-            <td>Celda 23</td>
-        </tr>
-        <tr>
-            <td rowspan="2">Celda 31</td>
-            <td colspan="2">Celda 32</td>
-        </tr>
-        <tr>
-            <td>Celda 42</td>
-            <td>Celda 43</td>
-        </tr>
-    </table>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Columna 1</th>
-                <th>Columna 2</th>
-                <th>Columna 3</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Celda 11</td>
-                <td>Celda 12</td>
-                <td>Celda 13</td>
-            </tr>
-            <tr>
-                <td>Celda 21</td>
-                <td>Celda 22</td>
-                <td>Celda 23</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td>Foot 1</td>
-                <td colspan="2">Foot 2</td>
-            </tr>
-        </tfoot>
-    </table>
 </body>
 
 </html>

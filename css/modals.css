@@ -1,0 +1,25 @@
+.modal {
+    position: fixed;
+    top: -120px;
+    left: calc(50vw - 125px);
+    width: 250px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF0000;
+    padding-inline: 25px;
+    border-radius: 16px;
+
+    transition-property: top;
+    transition-duration: 200ms;
+    transition-timing-function: linear;
+}
+
+.modal p {
+    color: #ffffff;
+}
+
+.modal.show {
+    top: 20px;
+}

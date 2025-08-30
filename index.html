@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript</title>
+    <link 
+    rel="stylesheet" 
+    href="css/modals.css">
+    <!-- <script src="js/index.js"></script> -->
+</head>
+<body>
+    <h1 id="titulo-p">Hola mundo!!</h1>
+    <button id="saludarBtn">Saludar</button>
+    <button onclick="alert('Hola 2')">
+        Saludar dos
+    </button>
+    <button onclick="saludar()">
+        Saludar tres
+    </button>
+
+    <form name="saludarForm">
+        <input type="text" 
+        name="nombre" 
+        placeholder="Ingrese el nombre de la persona" 
+        required>
+        <button type="submit">Saludar</button>
+    </form>
+    <br>
+    <h2 id="saludoTxt"></h2>
+    <br>
+    <form name="numForm">
+        <input 
+        type="number" 
+        name="numero" 
+        placeholder="Ingrese el número">
+        <button type="submit">Validar</button>
+    </form>
+    <div id="historial">
+        <!-- <p>2: <strong>par</strong></p> -->
+    </div>
+    <div id="msg-numero" class="modal">
+        <p>
+            Debe ingresar un número mayor a cero
+        </p>
+    </div>
+
+    <script src="js/inicio.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

@@ -57,7 +57,7 @@ class Docente extends Persona{
         return parent::get('id');
     }
     public function setCodigo($value){
-        parent::set('id', $codigo);
+        parent::set('id', $value);
     }
     public function toString(){
         return $this->nombre. ' '.parent::get('id');

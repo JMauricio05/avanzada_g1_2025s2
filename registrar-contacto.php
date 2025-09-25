@@ -29,7 +29,7 @@ $conexDb->close();
 if ($result) {
     header("Location: index.php");
 } else {
-    echo "Erro al guardar";
+    echo "Error al guardar";
 }
 
 

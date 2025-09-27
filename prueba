@@ -1,0 +1,20 @@
+Persona p = new Persona();
+
+class Estudiante {
+
+    private Persona p;
+
+    public Estudiante (){
+        this.p = new Persona();
+    }
+
+}
+
+class Doncente {
+    private Persona p = inject(Persona);
+    
+    public Estudiante (private Persona p){
+    }
+
+}
+

@@ -1,49 +1,67 @@
 <?php
-//require || include;
-include "metodos.php";
+$hostDb = "localhost";
+$userDb = "root";
+$pwdDb = "";
+$nameDb = "grupo_1_avanzada";
 
-$opr = new Operaciones();
+$conexDb = new mysqli(
+    $hostDb,
+    $userDb,
+    $pwdDb,
+    $nameDb
+);
 
+if ($conexDb->connect_error) {
+    die("DB error: " . $conexDb->connect_error);
+}
+
+$sql = "select * from contactos";
+$result = $conexDb->query($sql);
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <title>Inicio</title>
+    <title>Contactos</title>
 </head>
 
 <body>
-    <h1>Inicio</h1>
-    <button id="btn">Ver sumas</button>
-    <div id="suma1" style="display:none;">
-        2 + 2 = <?php echo $opr->sumar(2, 2); ?>
-    </div>
-    <div>
-        2 * 2 = <?php echo $opr->multiplicar(2, 2); ?>
-    </div>
-
-    <div>
-        2 / 2 = <?php echo $opr->dividir(2, 2); ?>
-    </div>
-    <div>
-        2 / 0 = <?php echo $opr->dividir(2, 0); ?>
-    </div>
-
-    <script>
-        
-        document.getElementById('btn').addEventListener('click', () => {
-            document.getEl
-            ementById('suma1').style.display = 'block';
-        });
-
-        let a = 'abcdefg';
-        console.log(a[5]);
-        for(let i=0; i<a.length; i++){
-            console.log(a[i]);
-        }
-    </script>
+    <h1>Lista de contactos</h1>
+    <br>
+    <a href="contacto-form.php">Crear</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<tr>';
+                    echo ' <td>' . $row['nombre'] . '</td>';
+                    echo ' <td>' . $row['telefono'] . '</td>';
+                    echo ' <td>' . $row['email'] . '</td>';
+                    echo ' <td>';
+                    echo '   <a href="contacto-form.php?cod=' . $row['id'] . '">Modificar</a>';
+                    echo ' </td>';
+                    echo '</tr>';
+                }
+            } else {
+                echo '<tr>';
+                echo ' <td colspan="3">No registros</td>';
+                echo '</tr>';
+            }
+            ?>
+        </tbody>
+    </table>
 </body>
 
 </html>
+<?php
+$conexDb->close();
+?>

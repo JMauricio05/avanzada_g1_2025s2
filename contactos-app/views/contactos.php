@@ -19,6 +19,7 @@ $contactos = $contactosController->queryAllContactos();
 <body>
     <h1>LIsta de contactos</h1>
     <br>
+    <a href="conacto-form.php">Crear contacto</a>
     <table>
         <thead>
             <tr>

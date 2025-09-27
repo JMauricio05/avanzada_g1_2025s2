@@ -14,4 +14,16 @@ class ContactosController
         return $contacto->all();
     }
 
+    public function saveNewContacto($request)
+    {
+        if (empty($request['nombre'])) {
+            return false;
+        }
+        $contacto = new Contacto();
+        $contacto->set('nombre', $request['nombre']);
+        $contacto->set('telefono', $request['telefono']);
+        $contacto->set('email', $request['email']);
+        return $contacto->insert();
+    }
+
 }

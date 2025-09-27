@@ -47,8 +47,19 @@ class Contacto extends Model
     public function find($id)
     {
     }
-    public function insert($contacto)
+    public function insert()
     {
+        $sql = SqlContacto::insertInto();
+        $db = new GrupoAvanzadaDB();
+        $result = $db->execSQL(
+            $sql,
+            false,
+            "sss",
+            $this->nombre,
+            $this->telefono,
+            $this->email
+        );
+        return $result;
     }
     public function update($id, $contacto)
     {

@@ -32,9 +32,17 @@ $opr = new Operaciones();
     </div>
 
     <script>
+        
         document.getElementById('btn').addEventListener('click', () => {
-            document.getElementById('suma1').style.display = 'block';
+            document.getEl
+            ementById('suma1').style.display = 'block';
         });
+
+        let a = 'abcdefg';
+        console.log(a[5]);
+        for(let i=0; i<a.length; i++){
+            console.log(a[i]);
+        }
     </script>
 </body>
 

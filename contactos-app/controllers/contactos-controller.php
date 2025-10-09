@@ -26,4 +26,13 @@ class ContactosController
         return $contacto->insert();
     }
 
+    public function deleteContacto($request){
+        if(empty($request['id'])) {
+            return false;
+        }
+        $contacto = new Contacto();
+        $contacto->set('id', $request['id']);
+        return $contacto->delete();
+    }
+
 }

@@ -7,5 +7,5 @@ abstract class Model
     abstract public function find($id);
     abstract public function insert();
     abstract public function update($id, $data);
-    abstract public function delete($id);
+    abstract public function delete();
 }

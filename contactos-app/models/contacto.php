@@ -42,6 +42,7 @@ class Contacto extends Model
                 array_push($contactos, $contacto);
             }
         }
+        $db->close();
         return $contactos;
     }
     public function find($id)
@@ -59,12 +60,23 @@ class Contacto extends Model
             $this->telefono,
             $this->email
         );
+        $db->close();
         return $result;
     }
     public function update($id, $contacto)
     {
     }
-    public function delete($id)
+    public function delete()
     {
+        $sql = SqlContacto::delete();
+        $db = new GrupoAvanzadaDB();
+        $result = $db->execSQL(
+            $sql, 
+            false,
+            "i", 
+            $this->id
+        );
+        $db->close();
+        return $result;
     }
 }

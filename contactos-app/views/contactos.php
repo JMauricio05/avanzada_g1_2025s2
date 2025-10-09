@@ -1,5 +1,5 @@
 <?php
-require __DIR__ ."/../controllers/contactos-controller.php";
+require __DIR__ . "/../controllers/contactos-controller.php";
 
 use App\Controllers\ContactosController;
 
@@ -14,6 +14,7 @@ $contactos = $contactosController->queryAllContactos();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lsita de contactos</title>
+    <link rel="stylesheet" href="../public/css/modals.css">
 </head>
 
 <body>
@@ -35,9 +36,14 @@ $contactos = $contactosController->queryAllContactos();
                 echo '  <td>' . $contacto->get('nombre') . '</td>';
                 echo '  <td>' . $contacto->get('telefono') . '</td>';
                 echo '  <td>' . $contacto->get('email') . '</td>';
+                echo '  <td>';
+                echo '      <button onclick="onClickBorrar(' . $contacto->get('id') . ')">';
+                echo '          <img src="../public/res/borrar.svg">';
+                echo '      </button>';
+                echo '  </td>';
                 echo '</tr>';
             }
-            if(count($contactos) == 0) {
+            if (count($contactos) == 0) {
                 echo '<tr>';
                 echo '  <td colspan="3">No hay registros</td>';
                 echo '</tr>';
@@ -45,6 +51,20 @@ $contactos = $contactosController->queryAllContactos();
             ?>
         </tbody>
     </table>
+
+    <div id="borrarContactoModal" class="modal">
+        <h3>Eliminar registro</h3>
+        <p>El registro se eliminara pemanentemente.</p>
+        <form name="borrarContacto" action="operaciones/borrar-contacto.php" method="post">
+            <input type="hidden" name="cod" value="0">
+            <div>
+                <button type="submit">continuar</button>
+                <button type="reset">cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="../public/js/contactos.js"></script>
 </body>
 
 </html>

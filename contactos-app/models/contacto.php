@@ -63,17 +63,30 @@ class Contacto extends Model
         $db->close();
         return $result;
     }
-    public function update($id, $contacto)
+    public function update()
     {
+        $sql = SqlContacto::update();
+        $db = new GrupoAvanzadaDB();
+        $result = $db->execSQL(
+            $sql,
+            false,
+            "sssi",
+            $this->nombre,
+            $this->telefono,
+            $this->email,
+            $this->id
+        );
+        $db->close();
+        return $result;
     }
     public function delete()
     {
         $sql = SqlContacto::delete();
         $db = new GrupoAvanzadaDB();
         $result = $db->execSQL(
-            $sql, 
+            $sql,
             false,
-            "i", 
+            "i",
             $this->id
         );
         $db->close();

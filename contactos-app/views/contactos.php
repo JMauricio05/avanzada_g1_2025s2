@@ -41,6 +41,11 @@ $contactos = $contactosController->queryAllContactos();
                 echo '          <img src="../public/res/borrar.svg">';
                 echo '      </button>';
                 echo '  </td>';
+                echo '  <td>';
+                echo '      <a href="conacto-form.php?cod=' . $contacto->get('id') . '">';
+                echo '          <img src="../public/res/editar.svg">';
+                echo '      </a>';
+                echo '  </td>';
                 echo '</tr>';
             }
             if (count($contactos) == 0) {

@@ -26,13 +26,31 @@ class ContactosController
         return $contacto->insert();
     }
 
-    public function deleteContacto($request){
-        if(empty($request['id'])) {
+    public function deleteContacto($request)
+    {
+        if (empty($request['id'])) {
             return false;
         }
         $contacto = new Contacto();
         $contacto->set('id', $request['id']);
         return $contacto->delete();
+    }
+
+    public function updateContacto($request)
+    {
+        if (
+            empty($request['id'])
+            || empty($request['nombre'])
+            || empty($request['telefono'])
+        ) {
+            return false;
+        }
+        $contacto = new Contacto();
+        $contacto->set('nombre', $request['nombre']);
+        $contacto->set('telefono', $request['telefono']);
+        $contacto->set('email', $request['email']);
+        $contacto->set('id', $request['id']);
+        return $contacto->update();
     }
 
 }

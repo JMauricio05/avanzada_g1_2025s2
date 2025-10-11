@@ -2,4 +2,4 @@
 
 //include "models/contacto.php";
 
-header("Location: views/contactos.php");
+header("Location: views/login.php");

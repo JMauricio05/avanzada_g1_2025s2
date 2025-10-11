@@ -1,7 +1,12 @@
 <?php
 require __DIR__ . "/../controllers/contactos-controller.php";
+require __DIR__ . "/../controllers/session-controller.php";
 
 use App\Controllers\ContactosController;
+use App\Controllers\SessionController;
+
+$sessionController = new SessionController();
+$sessionController->validateSession("login.php");
 
 $contactosController = new ContactosController();
 $contactos = $contactosController->queryAllContactos();
@@ -19,6 +24,8 @@ $contactos = $contactosController->queryAllContactos();
 
 <body>
     <h1>LIsta de contactos</h1>
+    <br>
+    <a href="operaciones/logout.php">Cerrar sesión</a>
     <br>
     <a href="conacto-form.php">Crear contacto</a>
     <table>

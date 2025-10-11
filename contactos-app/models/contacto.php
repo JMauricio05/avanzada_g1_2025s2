@@ -45,7 +45,7 @@ class Contacto extends Model
         $db->close();
         return $contactos;
     }
-    public function find($id)
+    public function find()
     {
     }
     public function insert()

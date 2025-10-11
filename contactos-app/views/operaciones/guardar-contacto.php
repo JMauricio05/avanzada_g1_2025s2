@@ -1,7 +1,12 @@
 <?php
 require __DIR__ . "/../../controllers/contactos-controller.php";
+require __DIR__ . "/../../controllers/session-controller.php";
 
+use App\Controllers\SessionController;
 use App\Controllers\ContactosController;
+
+$sessionController = new SessionController();
+$sessionController->validateSession("login.php");
 
 $contactosController = new ContactosController();
 

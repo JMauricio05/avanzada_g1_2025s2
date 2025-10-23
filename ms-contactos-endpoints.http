@@ -1,0 +1,17 @@
+### Enpdoint Hola mundo
+
+GET http://127.0.0.1:8000/
+
+### Ejemplo de endpoint para sumar
+
+POST http://127.0.0.1:8000/sumar
+Content-Type: application/json
+
+{
+    "num1": 2,
+    "num2": 10
+}
+
+### Consultar todos los contactos
+
+GET http://127.0.0.1:8000/contactos

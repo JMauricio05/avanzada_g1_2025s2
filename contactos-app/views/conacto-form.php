@@ -10,6 +10,7 @@
 <body>
     <h1>Guardar contacto</h1>
     <br>
+    <?php require 'componentes/menu.php';?>
     <form action="operaciones/guardar-contacto.php" method="post">
         <?php
         if (!empty($_GET["cod"])) {

@@ -1,3 +1,11 @@
+<?php
+require __DIR__ . "/../controllers/session-controller.php";
+
+use App\Controllers\SessionController;
+
+$sessionController = new SessionController();
+$sessionController->validateSession("login.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 

@@ -7,9 +7,12 @@ use Slim\Factory\AppFactory;
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../app/Config/database.php';
 
-$endpoints = require __DIR__.'/../app/Routers/endpoints.php';
+$endpoints = require __DIR__ . '/../app/Routers/endpoints.php';
+$auth = require __DIR__ . '/../app/Middleware/Auth.php';
 
 $app = AppFactory::create();
+
+$auth($app);
 
 $app->get('/', function (Request $request, Response $response, $args) {
     $response->getBody()->write("Hello world!");

@@ -45,8 +45,34 @@ class ContactosController extends Controller
     }
     public function update($id, $data)
     {
+        $required = ['nombre', 'telefono', 'email'];
+        foreach ($required as $item) {
+            if (empty($data[$item])) {
+                throw new Exception("$item null", 1);
+            }
+        }
+        $row = Contacto::find($id);
+        if(empty($row)){
+                throw new Exception("Row null", 2);
+        }
+        $row->nombre = $data['nombre'];
+        $row->telefono = $data['telefono'];
+        $row->email = $data['email'];
+        if (!$row->save()) {
+            throw new Exception("Error save", 3);
+        }
+        return $row->toJson();
     }
+
     public function delete($id)
     {
+        if(empty($id)){
+            throw new Exception("Id null", 1);
+        }
+        $row = Contacto::find($id);
+        if(empty($row)){
+            throw new Exception("Row null", 2);
+        }
+        return $row->delete();
     }
 }

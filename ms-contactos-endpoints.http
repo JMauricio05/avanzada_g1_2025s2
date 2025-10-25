@@ -15,16 +15,35 @@ Content-Type: application/json
 ### Consultar todos los contactos
 
 GET http://127.0.0.1:8000/contactos/
+Authorization: Bearer 12345
 
 ### Consultar un contacto
 GET http://127.0.0.1:8000/contactos/3
+Authorization: Bearer 12345
 
 ### Registrar un contacto
 POST http://127.0.0.1:8000/contactos/
 content-type: application/json
+Authorization: Bearer 12345
 
 {
   "nombre": "Juan Pérez",
   "telefono": "+34 600 123 456",
   "email": "juan.perez@example.com"
 }
+
+### Actualizar un contacto
+PUT http://127.0.0.1:8000/contactos/7
+content-type: application/json
+Authorization: Bearer 12345
+
+{
+  "nombre": "Ana Gomez",
+  "telefono": "+34 600 123 456",
+  "email": "ana@example.com"
+}
+
+### Eliminar un contacto
+DELETE  http://127.0.0.1:8000/contactos/7
+Authorization: Bearer 12345
+Code-Val: 789

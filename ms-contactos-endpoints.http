@@ -14,4 +14,17 @@ Content-Type: application/json
 
 ### Consultar todos los contactos
 
-GET http://127.0.0.1:8000/contactos
+GET http://127.0.0.1:8000/contactos/
+
+### Consultar un contacto
+GET http://127.0.0.1:8000/contactos/3
+
+### Registrar un contacto
+POST http://127.0.0.1:8000/contactos/
+content-type: application/json
+
+{
+  "nombre": "Juan Pérez",
+  "telefono": "+34 600 123 456",
+  "email": "juan.perez@example.com"
+}

@@ -5,6 +5,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
 use Slim\Routing\RouteCollectorProxy;
+use App\Repositories\ContactoRepository;
 
 return function (App $app) {
     $app->group('/contactos', function (RouteCollectorProxy $group) {
@@ -14,6 +15,7 @@ return function (App $app) {
             $response->getBody()->write($data);
             return $response->withHeader("Content-Type", "application/json");
         });
+        $group->get("/listar", [ContactoRepository::class, 'list']);
 
         $group->get('/{id}', function (Request $request, Response $response, $args) {
             try {

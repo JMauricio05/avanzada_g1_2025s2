@@ -13,8 +13,9 @@ $cors = require __DIR__ . '/../app/Middleware/Cors.php';
 
 $app = AppFactory::create();
 
-$cors($app);
 $auth($app);
+$cors($app);
+
 
 // $app->get('/', function (Request $request, Response $response, $args) {
 //     $response->getBody()->write("Hello world!");

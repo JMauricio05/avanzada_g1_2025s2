@@ -1,23 +1,24 @@
 <?php
 
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Psr7\Response;
 
 return function ($app) {
-    $allowedOrigins = ['*'];
+    $app->options('/{routes:.+}', fn($req, $res) => $res);
 
-    $app->add(function (Request $request, $handler) use ($allowedOrigins) {
-        $origin = $request->getHeaderLine('Origin');
-        $allowOrigin = in_array($origin, $allowedOrigins) ? $origin : 'null';
-
+    $app->add(function (Request $request, $handler) {
+        $origin = $request->getHeaderLine('Origin') ?: '*';
         $response = $handler->handle($request);
-        return $response
-            ->withHeader('Access-Control-Allow-Origin', $allowOrigin)
+        $response = $response
+            ->withHeader('Access-Control-Allow-Origin', $origin)
             ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
-            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-    });
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+            ->withHeader('Access-Control-Allow-Credentials', 'true');
 
-    $app->options('/{routes:.+}', function (Request $request, Response $response) {
+        if ($request->getMethod() === 'OPTIONS') {
+            return $response->withStatus(200);
+        }
+
         return $response;
     });
+
 };

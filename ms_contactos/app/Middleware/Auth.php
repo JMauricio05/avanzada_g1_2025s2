@@ -8,10 +8,13 @@ return function ($app) {
         $headers = $request->getHeader('Authorization');
         $token = $headers[0] ?? null;
 
-        // Ejemplo simple: validar un token fijo
+        // Ejemplo simple: validar un token fijo        
         if ($token !== 'Bearer 12345') {
             $response = new Response();
             $response->getBody()->write(json_encode(['msg' => 'error']));
+            if ($request->getMethod() === 'OPTIONS') {
+                return $response->withStatus(200);
+            }
             return $response
                 ->withStatus(401)
                 ->withHeader('Content-Type', 'application/json');

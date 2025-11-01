@@ -9,9 +9,11 @@ require __DIR__ . '/../app/Config/database.php';
 
 $endpoints = require __DIR__ . '/../app/Routers/endpoints.php';
 $auth = require __DIR__ . '/../app/Middleware/Auth.php';
+$cors = require __DIR__ . '/../app/Middleware/Cors.php';
 
 $app = AppFactory::create();
 
+$cors($app);
 $auth($app);
 
 // $app->get('/', function (Request $request, Response $response, $args) {

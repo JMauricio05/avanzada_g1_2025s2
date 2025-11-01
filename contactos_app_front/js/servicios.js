@@ -62,3 +62,5 @@ const listarContactos2 = async () => {
     }
 }
 listarContactos2();
+
+id = 5;

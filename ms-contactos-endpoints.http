@@ -22,7 +22,7 @@ GET http://127.0.0.1:8000/contactos/listar
 Authorization: Bearer 12345
 
 ### Consultar un contacto
-GET http://127.0.0.1:8000/contactos/3
+GET http://127.0.0.1:8000/contactos/30
 Authorization: Bearer 12345
 
 ### Registrar un contacto

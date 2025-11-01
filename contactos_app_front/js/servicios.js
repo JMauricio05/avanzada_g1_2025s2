@@ -7,7 +7,7 @@ const cargarTabla = (datos) => {
         const tr = document.createElement('tr');
         const nombreTd = document.createElement('td');
         nombreTd.textContent = item.nombre;
-        
+
         const telTd = document.createElement('td');
         telTd.textContent = item.telefono;
 
@@ -63,4 +63,22 @@ const listarContactos2 = async () => {
 }
 listarContactos2();
 
-id = 5;
+const validarContacto = async (id) => {
+    try {
+        const resp = await fetch(`http://127.0.0.1:8000/contactos/${id}`, {
+            method: 'GET',
+            headers: {
+                Authorization: 'Bearer 12345'
+            }
+        });
+        if(resp.status=='404'){
+            throw new Error('El usuario no existe'); 
+        }
+        alert('El usuario si existe');
+    } catch (error) {
+        alert(error);
+    }
+}
+validarContacto(30);
+
+
